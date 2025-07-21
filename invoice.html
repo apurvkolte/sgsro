@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice from SGSRO</title>
+    <style>
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+            color: #333;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        .invoice-container {
+            max-width: 90%;
+            margin: auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #2196F3;
+        }
+
+        header {
+            border-bottom: 2px solid #e7e7e7;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            max-width: 150px;
+            width: 100%;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .company-details {
+            flex: 1;
+            text-align: right;
+        }
+
+        .company-details h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: #2196F3;
+        }
+
+        .company-details div {
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+        .invoice-details {
+            margin: 20px 0;
+        }
+
+        .invoice-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .invoice-info {
+            margin-top: 10px;
+            font-size: 1rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .invoice-info td {
+            padding: 5px 0;
+        }
+
+        .billing-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .billing-details .company,
+        .billing-details .client {
+            flex: 1;
+            padding: 0 10px;
+            width: 45%;
+            margin-bottom: 1rem;
+        }
+
+        .billing-details h3 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            border-bottom: 1px solid #e7e7e7;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .table th {
+            background: #f7f7f7;
+            font-weight: bold;
+        }
+
+        .table .item:last-child td {
+            border-bottom: none;
+        }
+
+        .total-row {
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-top: 2px solid #e7e7e7;
+        }
+
+        .total-row td {
+            padding-top: 20px;
+        }
+
+        .total-label {
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .notes,
+        .terms {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .notes h3,
+        .terms h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 90%;
+            }
+
+            .invoice-container {
+                padding: 1rem;
+            }
+
+            .billing-details {
+                flex-direction: column;
+            }
+
+            .billing-details .company,
+            .billing-details .client {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .table th,
+            .table td {
+                font-size: 0.85rem;
+            }
+
+            header img {
+                max-width: 100px;
+            }
+
+            .footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-container">
+        <header>
+            <img src="logo.png" alt="Company Logo">
+            <div class="company-details">
+                <h2>SGSRO</h2>
+                <div>
+                    Moshi dehu, Alandi road<br>
+                    Chinchwad, Maharashtra,<br>
+                    India, 412105
+                </div>
+                <div>
+                    <a href="tel:+918007779657">080077 79657</a><br>
+                    <a href="mailto:info@sgsro.com">info@sgsro.com</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="invoice-details">
+            <div class="invoice-title">Invoice</div>
+            <table class="invoice-info">
+                <tr>
+                    <td><strong>Invoice :</strong> {{ invoiceNo }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Invoice Date :</strong> {{ order_date }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Order Date:</strong> {{ order_date }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="billing-details">
+            <div class="company">
+                <h3>From:</h3>
+                <div>
+                    Moshi dehu, Alandi road<br>
+                    Chinchwad, Maharashtra,<br>
+                    India, 412105
+                </div>
+            </div>
+            <div class="client">
+                <h3>To:</h3>
+                <div>
+                    {{ customerName }}<br>
+                    Contact: {{ mobile }}<br>
+                    {{ address }}<br>
+                    {{ city }}<br>
+                    {{ country }}
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Unit Cost</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Payment Status</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="item">
+                        <td>{{ productName }}</td>
+                        <td>₹{{ price }}</td>
+                        <td>{{ quantity }}</td>
+                        <td>{{ paymentStatus }}</td>
+                        <td>₹{{ itmePrice }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="total-label">Shipping Charges:</td>
+                        <td>₹{{ shippingPrice }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="total-label">GST (18%):</td>
+                        <td>₹{{ gst_amount }}</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="4" class="total-label">Total:</td>
+                        <td>₹{{ totalAmount }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="notes">
+            <h3>Notes</h3>
+            <p>Thank you for your business! Please make the payment by the due date.</p>
+        </div>
+
+        <div class="terms">
+            <h3>Terms</h3>
+            <p>Payment is due within 30 days. Late payments are subject to a 10% interest charge.</p>
+        </div>
+
+        <footer class="footer">
+            <p>&copy;<span id="currentYear"></span> SGSRO. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

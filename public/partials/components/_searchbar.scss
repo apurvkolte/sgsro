@@ -1,0 +1,149 @@
+#searchbar {
+  display: grid;
+  grid-template-columns: 0.5fr;
+  justify-content: center;
+  align-items: start;
+  z-index: 999;
+  @include devices(lg) {
+    grid-template-columns: 0.8fr;
+  }
+
+  @include devices(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.searchbar_content {
+  margin: 3rem 1rem;
+}
+
+.mobilesearch{
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+   }
+
+   @media (max-width: 480px) { 
+    display: block;
+   }
+}
+
+.search_box {
+  display: flex;
+  gap: 0.4rem;
+  height: 2.7rem;
+    width: 100%;
+  margin-top: -55px;
+
+  .input_field {
+    background-color: White;
+    color: var(--text-color);
+  }
+
+  .btn {
+    font-size: 1.5rem;
+
+    &[disabled] {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  }
+
+  .search_container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Optional: restrict max width */
+    border: 1px solid #ccc; /* Border around the combined box */
+    border-radius: 4px;
+    overflow: hidden; /* Prevents content from spilling out */
+
+    .input_field {
+      flex: 1; /* Takes up all available space */
+      padding: 0.5rem;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .search_button {
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+
+    }
+  }
+
+  @media (max-width: 768px) { 
+    width: 100%; /* Full width for smaller devices */
+    margin-top: 0;
+    gap: 0.2rem;
+    padding: 5px;
+    // display: none; 
+
+    .search_box {
+      margin-top: -55px;
+      padding: 1rem 1rem;
+      margin-bottom: -4px;
+    }
+
+    .input_field {
+      width: 100%;
+      font-size: 0.9rem; /* Slightly smaller font for smaller screens */
+    }
+
+    .btn {
+      font-size: 1.2rem; /* Adjust button size */
+      width: 100%; /* Full width button */
+    }
+  }
+
+  @media (max-width: 480px) {
+    // display: none; 
+    padding: 5px;
+    .search_box {
+      margin-top: -55px;
+      padding: 1rem 1rem;
+      margin-bottom: -4px;
+    }
+    .input_field {
+      font-size: 0.85rem;
+    }
+    .btn {
+      font-size: 1rem;
+    }
+  }
+}
+
+.search_results {
+  background-color: #f8f9fa;
+  display: grid;
+  justify-items: flex-start;
+  gap: 1rem;
+  position: absolute;
+  z-index: 11111111;
+  margin-top: 0.3rem;
+  width: 50%;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+  border: 1px solid #9eabb7;
+  scrollbar-width: none;
+
+  a {
+    cursor: pointer;
+    @include transition(color, 0.3s);
+    color: black;
+    &:hover {
+      // color: #ffffffd0;
+      color: #65cef5;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

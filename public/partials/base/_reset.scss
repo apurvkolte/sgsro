@@ -1,0 +1,372 @@
+// ::-webkit-scrollbar {
+//   width: 0.6vw;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background-color: #f2f9ff;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background-color: #a7d9f2;
+// }
+
+// ::-webkit-scrollbar-thumb:hover {
+//   background-color: rgb(145, 199, 145);
+// }
+
+// ::selection {
+//   background-color: green;
+//   color: white;
+// }
+
+// ::-moz-selection {
+//   background-color: var(--bg-color);
+//   color: #fff;
+// }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  // scrollbar-width: thin;
+  scroll-behavior: smooth;
+  // scrollbar-color: #f2f9ff;
+
+  @include devices(xs) {
+    font-size: 15px;
+  }
+}
+
+body {
+  //   font-family: Montserrat, sans-serif;
+  /* font-family: "Amazon Ember" !important; */
+  //   font-family: "Mier book" !important;
+  //   font-family: "Roboto,Arial,sans-serif";
+  font-family: sans-serif;
+  height: 100%;
+  // background-color: #eaedef;
+  color: var(--text-color);
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+input,
+button,
+textarea {
+  border: none;
+  outline: none;
+  line-height: 1;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: transparent;
+}
+
+input[type="checkbox"],
+input[type="range"] {
+  accent-color: var(--bg-color);
+}
+
+.price_filter input[type="range"] {
+  width: 180px;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header img {
+  height: 70px;
+  max-width: 100%;
+  padding: 3px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+img,
+svg {
+  vertical-align: middle;
+  user-select: none;
+}
+
+del {
+  color: var(--text-muted);
+}
+
+.bg-poster {
+  background: #eef2fb;
+}
+
+.bg-poster1 {
+  visibility: visible;
+  animation-name: fadeIn;
+  // color: white;
+  font-weight: 500;
+  font-size: 18px;
+  // background: linear-gradient(90deg, #4997ce 0%, #3854a3 100%);
+  // background: linear-gradient(90deg, #b79ef1 0%, #46d0ea 100%);
+  // background: url("../../../styles/slide.jpg");
+
+  // background-color: #f7f7f7;
+  // background-color: #f2f5f9;
+  // background-color: #d6d1b3cb;
+  // background-color: #303030;
+  // color: var(--text-color);
+  // font-family: Montserrat, sans-serif;
+}
+
+.bg-product-home {
+  background-color: #f7f7f7;
+}
+
+.bg-poster-head {
+  background-color: #d6d1b3cb;
+}
+
+.bg-poster-slider {
+  background-color: #f7f7f7;
+}
+
+.bg-poster-slider1 {
+  // background-color: #f2f5f9;
+  background-color: #f7f7f7;
+}
+
+.bg-poster2 {
+  // background: #eef2fb;
+  background: #f8f9fa;
+  color: #0059a3;
+}
+
+.bg-poster2 .heading {
+  // background: #eef2fb;
+  color: #0059a3;
+}
+
+/* Main Container */
+.water-heading-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  padding: 0 1rem;
+
+  @include devices(sm) {
+    margin: 0 0;
+  }
+}
+
+/* Content Wrapper */
+.water-heading-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+/* Main Heading */
+.water-main-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0059a3;
+  // margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.heading-text {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Water Wave Effect */
+.water-wave {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(77, 184, 255, 0.3);
+  z-index: 1;
+  border-radius: 50%;
+  animation: waveAnimation 4s ease-in-out infinite;
+}
+
+@keyframes waveAnimation {
+
+  0%,
+  100% {
+    transform: scaleX(0.95) translateY(5px);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scaleX(1.05) translateY(0);
+    opacity: 0.9;
+  }
+}
+
+/* Subheading */
+.water-subheading {
+  font-size: 1.2rem;
+  color: #4a6b8a;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.subheading-text {
+  background: linear-gradient(90deg, #f8fafc, #eef5fb, #f8fafc);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 89, 163, 0.08);
+}
+
+/* Water Droplet Decoration */
+// .water-heading-wrapper::before {
+//   content: "💧";
+//   position: absolute;
+//   top: -15px;
+//   left: 10%;
+//   font-size: 1.2rem;
+//   opacity: 0.8;
+//   animation: dropletFloat 6s ease-in-out infinite;
+// }
+
+// .water-heading-wrapper::after {
+//   content: "💧";
+//   position: absolute;
+//   top: -5px;
+//   right: 10%;
+//   font-size: 1rem;
+//   opacity: 0.6;
+//   animation: dropletFloat 5s ease-in-out infinite 1s;
+// }
+
+@keyframes dropletFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Hover Effects */
+.water-main-heading:hover .water-wave {
+  animation-duration: 3s;
+  background: rgba(77, 184, 255, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .water-main-heading {
+    font-size: 2.2rem;
+  }
+
+  .water-subheading {
+    font-size: 1rem;
+  }
+
+  .subheading-text {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .water-wave {
+    height: 8px;
+    bottom: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .water-main-heading {
+    font-size: 1.8rem;
+  }
+
+  .water-heading-wrapper::before,
+  .water-heading-wrapper::after {
+    display: none;
+  }
+}
+
+
+
+
+.water-category-name {
+  color: #0088cc;
+  /* Richer water blue */
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.03em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: all 0.25s ease;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+/* Subtle water-inspired underline */
+.water-category-name::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00bcd4, transparent);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.water-category-name:hover {
+  color: #0066a3;
+  /* Deeper blue on hover */
+  letter-spacing: 0.04em;
+}
+
+.water-category-name:hover::after {
+  width: 70%;
+  left: 15%;
+  opacity: 0.9;
+  background: linear-gradient(90deg, transparent, #0088cc, transparent);
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .water-category-name {
+    font-size: 0.8rem;
+  }
+}

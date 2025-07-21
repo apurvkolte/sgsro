@@ -1,0 +1,40 @@
+// Base
+@import "./app.css";
+@import "./partials/base/variables";
+@import "./partials/base/mixins";
+@import "./partials/base/reset";
+@import "./partials/base/common";
+
+// Components
+@import "./partials/components/preloader";
+@import "./partials/components/header";
+@import "./partials/components/footer";
+@import "./partials/components/backtop";
+@import "./partials/components/form";
+@import "./partials/components/searchbar";
+@import "./partials/components/filterbar";
+@import "./partials/components/quantity_box";
+@import "./partials/components/empty_view";
+
+// Pages
+@import "./partials/pages/hero";
+@import "./partials/pages/featured";
+@import "./partials/pages/products";
+@import "./partials/pages/product_details";
+@import "./partials/pages/product_summary";
+@import "./partials/pages/cart";
+@import "./partials/pages/related";
+@import "./partials/pages/services";
+@import "./partials/pages/error_page";
+
+// @import "~bootstrap/dist/css/bootstrap.min.css";
+
+@import "~react-toastify/dist/ReactToastify.css";
+
+/* Import Swiper CSS */
+@import "~swiper/swiper-bundle.min.css";
+// @import "../../node_modules/bootstrap/scss/bootstrap";
+// @import "swiper/scss";
+// @import "swiper/scss/autoplay";
+// @import "swiper/scss/pagination";
+// @import "swiper/scss/effect-coverflow";
